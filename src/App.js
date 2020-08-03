@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import EmployeeContainer from './components/EmployeeContainer';
 import API from './utils/API';
 
@@ -23,7 +22,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <NavBar /> */}
         {this.state.users.map((employee) => (
           <EmployeeContainer
             firstName={employee.name.first}
