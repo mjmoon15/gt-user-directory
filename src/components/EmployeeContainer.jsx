@@ -2,28 +2,26 @@ import React from 'react';
 
 //pass in props
 const EmployeeContainer = (props) => {
+	const { employees } = props
 	return (
 		<div className="container">
-			<table className="table">
-				<thead>
+			<table className="table table-striped">
+				<thead className="thead-light">
 					<tr>
-						<th scope="col">ID Picture</th>
-						<th scope="col">Name</th>
-						<th scope="col">Email</th>
-						<th scope="col">Phone</th>
+						<th onClick={props.sorted}>Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							<img src={props.src} alt={props.firstName}></img>
-						</td>
-						<td>
-							{props.firstName} {props.lastName}
-						</td>
-						<td>{props.email}</td>
-						<td>{props.phone}</td>
-					</tr>
+                    {employees && employees.map((employee, index) => (
+                    <tr key={index}>
+                        <th>{employee.name.first} {employee.name.last}</th>
+                        <td>{employee.phone}</td>
+                        <td>{employee.email}</td>
+                    </tr>
+                    ))}
 				</tbody>
 			</table>
 		</div>
